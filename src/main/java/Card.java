@@ -6,7 +6,7 @@ public class Card {
     public Card(String suit, String value) {
         this.suit = suit;
         this.value = value;
-        this.faceUp = false;
+        this.faceUp = true;
     }
 
     public String getSuit() {
@@ -19,11 +19,11 @@ public class Card {
     }
 
     public String getValue() {
-// only return the value if the card is face up
+        // only return the value if the card is face up
         if (faceUp) {
-// this is the string value of the card
-// i.e. A, K, Q, J, 10, 9 ...
-            return value;
+            // this is the string value of the card
+            // i.e. A, K, Q, J, 10, 9 ...
+            return this.value;
         } else {
             return "#";
         }
@@ -57,9 +57,5 @@ public class Card {
 
     public boolean isFaceUp() {
         return faceUp;
-    }
-
-    public void flip() {
-        faceUp = !faceUp;
     }
 }

@@ -9,7 +9,7 @@ public class Hand {
 
     // A Card is dealt to the Hand and the Hand is responsible
     // to store the card
-    public void addcard(Card card) {
+    public void addCard(Card card) {
         this.cards.add(card);
     }
 
@@ -22,24 +22,18 @@ public class Hand {
     public int getValue() {
         int value = 0;
         for (Card card : cards) {
-            card.flip(); // turn the card over to see the value
             value += card.getPointValue();
-            card.flip(); // hide the card again
         }
         return value;
     }
 
     @Override
     public String toString() {
-        String results = "";
-        for (int i = 0; i < this.cards.size(); i++) {
-            Card c = this.cards.get(i);
-            results += c.getSuit() + c.getValue();
-            if (i != this.cards.size() - 1) {
-                    results += ", ";
-            }
+        StringBuilder sb = new StringBuilder();
+        for (Card card : cards) {
+            sb.append(card.getValue()).append(" of ").append(card.getSuit()).append(" ");
         }
-        return results;
+        return sb.toString();
     }
 
 }
